@@ -1,0 +1,35 @@
+<h2>Signup</h2>
+
+<form action="/auth/signup" method="POST" id="form-container">
+  <label for="username">Nombre de usuario</label>
+  <input id="username" type="text" name="username" placeholder="JonSnow">
+
+  <br><br>
+
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" placeholder="JonSnow@dracarys.got">
+
+  <br><br>
+
+  <label for="password">Contraseña</label>
+  <input id="password" type="password" name="password" placeholder="MyQueen123">
+
+  <br><br>
+
+  <label for="telephoneNumber">Numero de telefono</label>
+  <input id="telephoneNumber" type="telephoneNumber" name="telephoneNumber" placeholder="+54 123456789">
+
+  <br>
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br><br>
+
+  <button>Crear cuenta</button>
+
+  <p class="account-message">
+    Ya tienes una cuenta?
+    <a href="/auth/login">Login</a>
+  </p>
+</form>
