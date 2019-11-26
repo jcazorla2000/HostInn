@@ -63,4 +63,22 @@ a {
 button {
   padding: 7px; }
 
+.create {
+  background-image: url("../images/create.jpeg");
+  background-size: cover;
+  background-position-y: -170px;
+  width: 100%;
+  height: 90vh; }
+
+.createF {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  width: 35%;
+  border-radius: 30px;
+  padding: 30px;
+  text-align: right;
+  position: absolute;
+  left: 130px;
+  bottom: 60px; }
+
 /*# sourceMappingURL=style.css.map */

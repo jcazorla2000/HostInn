@@ -8,12 +8,13 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 
+
 router.get("/login", (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/places/show",
   failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
@@ -62,5 +63,6 @@ router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
+
 
 module.exports = router;
