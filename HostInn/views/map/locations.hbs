@@ -1,10 +1,3 @@
-{{!-- {{#each places as |place|}}
-  <a>{{place}}</a>
-  <h1>Hola</h1>
-  <script>
-    console.log(place)
-  </script>
-{{/each}} --}}
 <div id="map-size">
   <div id='map-locations' style='height: 80vh;'></div>
 </div>
@@ -25,29 +18,23 @@
     marker: true, 
   });
 
-
   map.addControl(geocoder);
-
-  /*map.on('load', function() {
-    map.addSource('single-point', {
-      type: 'geojson',
-      data: {
-        type: 'FeatureCollection',
-        features: []
-      }
-    });
-  });*/
-
-  var popup = new mapboxgl.Popup({ offset: 25 })
-  .setText('Construction on the Washington Monument began in 1848.');
-  
-  // create DOM element for the marker
-  var el = document.createElement('div');
-  el.id = 'marker';
-  
-  // create the marker
-  new mapboxgl.Marker(el)
-  .setLngLat(monument)
-  .setPopup(popup) // sets a popup on this marker
-  .addTo(map);
 </script>
+
+  {{#each places as |place|}}
+    <script>
+      var id = "{{place._id}}";
+      var lng = Number("{{place.lng}}");
+      var lat = Number("{{place.lat}}");
+
+      var popup = new mapboxgl.Popup({ offset: 25 })
+      .setText(`http://localhost:3000/places/${id}`);
+      var el = document.createElement('div');
+      el.id = 'marker';
+    
+      new mapboxgl.Marker(el)
+      .setLngLat([lng, lat])
+      .setPopup(popup) 
+      .addTo(map);
+    </script>
+  {{/each}}
