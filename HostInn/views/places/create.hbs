@@ -1,0 +1,39 @@
+<div>
+  <h2>Agrega los datos de tu espacio: </h2>
+<form method="POST" action="/show">
+    <div>
+      <label for="name">Nombre</label>
+      <input type="text" name="name" id="name" required>
+    </div>
+    <div>
+      <label for="description">Descripción</label>
+      <input type="text" name="name" id="name" required>
+    </div>
+    <div>
+      <label for="location">Dirección</label>
+      <input type="text" name="name" id="name" required>
+    </div>
+    <div>
+      <label for="city">City</label>
+      <select name="city" id="city" required>
+        <option value="" selected disabled>Selecciona Ciudad</option>
+        <option value="Nueva York">Nueva York</option>
+        <option value="Sao Paulo">Sao Paulo</option>
+        <option value="Paris">París</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="CDMX">CDMX</option>
+      </select>
+    </div>
+     <div>
+      <p>Fecha</p>
+      <input type="date" name="startdate">
+      <input type="date" name="enddate">
+    </div>
+    <div>
+      <aside>Agrega una foto del lugar</aside><label for="photo"></label>
+      <input type="file" name="photo" id="photo" accept="image/*">
+    </div>
+    <br>
+    <button type="submit">Agregar Lugar</button>
+</form>
+</div>

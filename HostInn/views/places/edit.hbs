@@ -1,0 +1,28 @@
+<h2>Editar datos del lugar</h2>
+<form method="GET" action="/places/show">
+    <div>
+      <label for="name">Nombre</label>
+      <input type="text" name="name" id="name" required>
+    </div>
+    <div>
+      <label for="description">Descripción</label>
+      <input type="text" name="name" id="name" required>
+    </div>
+    <div>
+      <label for="city">Ciudad</label>
+      <select name="city" id="city" required>
+        <option value="" selected disabled>Selecciona Ciudad</option>
+        <option value="Nueva York">Nueva York</option>
+        <option value="Sao Paulo">Sao Paulo</option>
+        <option value="Paris">París</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="CDMX">CDMX</option>
+      </select>
+    </div>
+    <div>
+      <p>Fecha</p>
+      <input type="date" name="startdate">
+      <input type="date" name="enddate">
+    </div>
+    <button type="submit">Edit Place</button>
+</form>

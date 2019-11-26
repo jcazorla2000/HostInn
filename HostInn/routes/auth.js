@@ -24,8 +24,8 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post("/signup", (req, res, next) => {
-  const { username, email, password, telephoneNumber } = req.body
-  if (username === "" || password === "" || email === "" || telephoneNumber === "") {
+  const { username, email, password, telephoneNumber, role } = req.body
+  if (username === "" || password === "" || email === "" || telephoneNumber === "" || role === "") {
     res.render("auth/signup", { message: "Campos sin rellenar" });
     return;
   }
@@ -43,7 +43,8 @@ router.post("/signup", (req, res, next) => {
       username,
       password: hashPass,
       email,
-      telephoneNumber
+      telephoneNumber,
+      role
     });
 
     newUser.save()

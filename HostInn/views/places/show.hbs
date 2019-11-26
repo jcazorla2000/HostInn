@@ -1,0 +1,25 @@
+<main class="places">
+  <h2>Lugares</h2>
+  
+    {{#each place}}
+
+    <div class="card" style="width: 18rem;">
+      <img src="{{place.photo}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{place.name}}</h5>
+        <p class="card-text">{{place.description}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{place.city}}</li>
+        <li class="list-group-item">{{place.date}}</li>
+        
+      </ul>
+      <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+
+    {{/each}}
+  
+</main>

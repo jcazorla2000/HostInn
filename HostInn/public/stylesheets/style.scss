@@ -15,7 +15,7 @@ a {
 #header {
   background-image: url("../images/headImage.jpeg");
   background-size: cover;
-  background-position-y: -90px;
+  background-position-y: -140px;
   width: 100%;
   height: 90vh;
 }
@@ -28,4 +28,48 @@ a {
 #map-size {
   height: 1000px;
   width: 100%
+}
+
+.signup{
+  background-image: url("../images/signup.jpg");
+  background-size: cover;
+  background-position-y: -170px;
+  width: 100%;
+  height: 90vh;
+  text-align: right;
+}
+
+.signupF{
+  background:rgba(247, 244, 244, 0.5);
+  width: 35%;
+  border-radius: 30px;
+  padding: 30px;
+  text-align: right;
+  position: absolute;
+  left: 110px;
+  bottom: 50px;
+}
+
+.login{
+  background-image: url("../images/login.jpg");
+  background-size: cover;
+  background-position-y: -170px;
+  width: 100%;
+  height: 90vh;
+  text-align: right;
+}
+
+.loginF{
+  background:rgba(247, 244, 244, 0.5);
+  width: 35%;
+  border-radius: 30px;
+  padding: 30px;
+  text-align: right;
+  position: absolute;
+  left: 30px;
+  bottom: 200px;
+}
+
+button{
+  padding: 7px;
 }
