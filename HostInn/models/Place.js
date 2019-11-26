@@ -1,29 +1,44 @@
 const { model, Schema } = require("mongoose")
 
+
 const placeSchema = new Schema(
   {
-    price: {
-      type: Number,
-      required: true
-    },
-    location: {
-      type: String,
-      enum: ["Nueva York", "Sao Paulo", "Paris", "Barcelona", "Roma", "Ciudad de Mexico"],
-      required: true
+    name: {
+      type: String
     },
     hostID: {
       type: Schema.Types.ObjectId,
       ref: "Host"
     },
-    date: {
+    price: {
+      type: Number,
+      required: true
+    },
+    startDate: {
       type: String,
       required: true
+    },
+    endDate: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String
     },
     photo: {
       type: String
     },
-    description: {
-      type: String
+    lng : {
+      type: String,
+      required: true
+    },
+    lat : {
+      type: String,
+      required: true
+    },
+    address: {
+      type: String,
+      required: true
     }
   },
   {
@@ -31,3 +46,5 @@ const placeSchema = new Schema(
     versionKey: false
   }
 )
+
+module.exports = model("Place", placeSchema)

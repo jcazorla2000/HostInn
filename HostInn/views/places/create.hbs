@@ -1,0 +1,108 @@
+<div id="create">
+  <form action="/places/create" method="POST">
+    <h2>Crea</h2>
+    <label for="price">Precio</label>
+    <br>
+    <input type="number" name="price" id="price">
+
+    <br><br>
+
+    <label for="startDate">Fecha de inicio</label>
+    <br>
+    <input type="date" name="startDate" id="startDate">
+
+    <br><br>
+
+    <label for="endDate">Fecha de finalización</label>
+    <br>
+    <input type="date" name="endDate" id="endDate">
+
+    <br><br>
+
+    <label for="description">Descripción</label>
+    <br>
+    <input type="text" name="description" id="description">
+
+    <br><br>
+
+    <label for="photo">Foto</label>
+    <br>
+    <input type="file" name="photo" id="photo">
+
+    <input id="lng" type="text" name="lng" hidden>
+    <input id="lat" type="text" name="lat" hidden>
+    <input id="address" type="text" name="address" hidden>
+    <input id="name" type="text" name="name" hidden>
+    <br><br>
+
+    <button type="submit">Crear</button>
+    <div id='map'></div>
+
+  </form>
+  <div id="right">
+    <h3>Escoja aqui la ubicación</h3>
+  </div>
+</div>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
+  var map = new mapboxgl.Map({
+    container: 'map', // Container ID
+    style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
+    center: [-122.25948, 37.87221], // Starting position [lng, lat]
+    zoom: 12, // Starting zoom level
+  });
+
+  /*var marker = new mapboxgl.Marker() // initialize a new marker
+  .setLngLat([-122.25948, 37.87221]) // Marker [lng, lat] coordinates
+  .addTo(map); // Add the marker to the map*/
+
+  //console.log(marker)
+
+  var geocoder = new MapboxGeocoder({ // Initialize the geocoder
+    accessToken: mapboxgl.accessToken, // Set the access token
+    mapboxgl: mapboxgl, // Set the mapbox-gl instance
+    marker: true, // Do not use the default marker style
+  });
+
+  console.log(geocoder)
+
+  // Add the geocoder to the map
+  map.addControl(geocoder);
+
+  // After the map style has loaded on the page,
+  // add a source layer and default styling for a single point
+  map.on('load', function() {
+    map.addSource('single-point', {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: []
+      }
+    });
+
+    /*map.addLayer({
+      id: 'point',
+      source: 'single-point',
+      type: 'circle',
+      paint: {
+        'circle-radius': 10,
+        'circle-color': '#448ee4'
+      }
+    });*/
+
+    // Listen for the `result` event from the Geocoder
+    // `result` event is triggered when a user makes a selection
+    //  Add a marker at the result's coordinates
+    /*geocoder.on('result', function(e) {
+      console.log(e)
+      map.getSource('single-point').setData(e.result.geometry);
+    });*/
+    geocoder.on('results', (results) => {
+      console.log(results)
+      document.querySelector('#address').value = results.features[0].place_name
+      document.querySelector('#lat').value = results.features[0].center[1];
+      document.querySelector('#lng').value = results.features[0].center[0];
+      document.querySelector('#name').value = results.features[0].text;
+  })
+  });
+</script>

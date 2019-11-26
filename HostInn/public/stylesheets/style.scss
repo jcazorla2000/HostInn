@@ -29,3 +29,74 @@ a {
   height: 1000px;
   width: 100%
 }
+
+#mapid {
+  height: 80vh;
+}
+
+#section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+#hr {
+  height: 30px;
+  border-top: 2px solid grey;
+  width: 80%;
+  margin-bottom: 5vh
+}
+
+#logo {
+  height: 80px;
+  width: 80px;
+}
+
+#section div {
+  display: flex;
+  justify-content: space-around;
+  margin: 5vh 0;
+}
+
+#section div div {
+  width: 20%
+}
+
+#section div div {
+  display: flex;
+  flex-direction: column;
+  justify-content:  center;
+}
+
+#geocoder-container > div {
+  min-width:50%;
+  margin-left:25%;
+  }
+
+#create {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5vh
+}
+
+#map {
+  width: 50vw;
+  height: 60vh
+}
+
+#right {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+#marker {
+  background-image: url('https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg');
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  }
