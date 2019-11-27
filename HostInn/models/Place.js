@@ -28,6 +28,12 @@ const placeSchema = new Schema(
     photo: {
       type: String
     },
+    imgName: {
+      type: String
+    },
+    imgPath: {
+      type: String
+    },
     lng : {
       type: String,
       required: true

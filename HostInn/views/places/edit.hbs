@@ -1,6 +1,6 @@
 <div class="create">
   <div class="createF">
-    <form action="/places/create" method="POST">
+    <form action="/places/edit/{{place._id}}" method="POST">
     <h2>Crea</h2>
     <label for="price">Precio</label>
     <br>
@@ -26,7 +26,7 @@
     <input id="address" type="text" name="address" hidden>
     <input id="name" type="text" name="name" hidden>
     <br>
-    <button type="submit">Crear</button>
+    <button type="submit">Editar</button>
     <div id='map'></div>
   </form>
   </div>

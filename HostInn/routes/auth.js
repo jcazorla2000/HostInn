@@ -2,6 +2,8 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
+const { ensureLogin, whichRole, checkUser} = require("../middlewares/auth.middlewares")
+
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -48,7 +50,7 @@ router.post("/signup", (req, res, next) => {
 
     newUser.save()
     .then(() => {
-      res.redirect("/");
+      res.redirect("/auth/login");
     })
     .catch(err => {
       console.log(err)
@@ -61,5 +63,9 @@ router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
+
+router.get("/profile", checkUser, ensureLogin, (req,res, next) => {
+  res.render("auth/profile",)
+})
 
 module.exports = router;

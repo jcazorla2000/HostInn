@@ -21,7 +21,7 @@ a {
   padding-top: 80px; }
 
 #map-size {
-  height: 1000px;
+  height: 88vh;
   width: 100%; }
 
 #mapid {
@@ -127,17 +127,31 @@ button {
   background-size: cover;
   background-position-y: -170px;
   width: 100%;
-  height: 90vh; }
+  height: 100vh; }
 
 .createF {
   background: rgba(0, 0, 0, 0.8);
   color: white;
   width: 35%;
   border-radius: 30px;
-  padding: 30px;
+  padding: 10px;
   text-align: right;
   position: absolute;
-  left: 130px;
-  bottom: 60px; }
+  left: 80px;
+  bottom: 7px; }
+
+#map {
+  position: absolute;
+  bottom: 20px;
+  left: 500px;
+  margin-left: 5vh;
+  margin-top: 10vh; }
+
+.profile {
+  background-image: url("../images/profile.jpg");
+  background-size: cover;
+  background-position-y: -170px;
+  width: 100%;
+  height: 90vh; }
 
 /*# sourceMappingURL=style.css.map */
