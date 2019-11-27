@@ -27,8 +27,11 @@
       var lng = Number("{{place.lng}}");
       var lat = Number("{{place.lat}}");
 
-      var popup = new mapboxgl.Popup({ offset: 25 })
-      .setText(`http://localhost:3000/places/${id}`);
+      var popup = new mapboxgl.Popup({closeOnClick: true})
+      .setLngLat([lng, lat])
+      .setHTML(`<a href="http://localhost:3000/places/${id}">Aquí</a>`)
+      .addTo(map);
+
       var el = document.createElement('div');
       el.id = 'marker';
     

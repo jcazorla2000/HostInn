@@ -46,31 +46,20 @@
 <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
   var map = new mapboxgl.Map({
-    container: 'map', // Container ID
-    style: 'mapbox://styles/mapbox/streets-v11', // Map style to use
-    center: [-122.25948, 37.87221], // Starting position [lng, lat]
-    zoom: 12, // Starting zoom level
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11', 
+    center: [-122.25948, 37.87221], 
+    zoom: 12, 
   });
 
-  /*var marker = new mapboxgl.Marker() // initialize a new marker
-  .setLngLat([-122.25948, 37.87221]) // Marker [lng, lat] coordinates
-  .addTo(map); // Add the marker to the map*/
-
-  //console.log(marker)
-
-  var geocoder = new MapboxGeocoder({ // Initialize the geocoder
-    accessToken: mapboxgl.accessToken, // Set the access token
-    mapboxgl: mapboxgl, // Set the mapbox-gl instance
-    marker: true, // Do not use the default marker style
+  var geocoder = new MapboxGeocoder({ 
+    accessToken: mapboxgl.accessToken, 
+    mapboxgl: mapboxgl, 
+    marker: true, 
   });
 
-  console.log(geocoder)
-
-  // Add the geocoder to the map
   map.addControl(geocoder);
 
-  // After the map style has loaded on the page,
-  // add a source layer and default styling for a single point
   map.on('load', function() {
     map.addSource('single-point', {
       type: 'geojson',
@@ -80,23 +69,6 @@
       }
     });
 
-    /*map.addLayer({
-      id: 'point',
-      source: 'single-point',
-      type: 'circle',
-      paint: {
-        'circle-radius': 10,
-        'circle-color': '#448ee4'
-      }
-    });*/
-
-    // Listen for the `result` event from the Geocoder
-    // `result` event is triggered when a user makes a selection
-    //  Add a marker at the result's coordinates
-    /*geocoder.on('result', function(e) {
-      console.log(e)
-      map.getSource('single-point').setData(e.result.geometry);
-    });*/
     geocoder.on('results', (results) => {
       console.log(results)
       document.querySelector('#address').value = results.features[0].place_name

@@ -99,4 +99,62 @@ a {
   height: 20px;
   border-radius: 50%;
   cursor: pointer;
-  }
+}
+
+.signup{
+  background-image: url("../images/signup.jpg");
+  background-size: cover;
+  background-position-y: -170px;
+  width: 100%;
+  height: 90vh;
+  text-align: right;
+}
+.signupF{
+  background:rgba(247, 244, 244, 0.5);
+  width: 35%;
+  border-radius: 30px;
+  padding: 30px;
+  text-align: right;
+  position: absolute;
+  left: 110px;
+  bottom: 50px;
+}
+.login{
+  background-image: url("../images/login.jpg");
+  background-size: cover;
+  background-position-y: -170px;
+  width: 100%;
+  height: 90vh;
+  text-align: right;
+}
+.loginF{
+  background:rgba(247, 244, 244, 0.5);
+  width: 35%;
+  border-radius: 30px;
+  padding: 30px;
+  text-align: right;
+  position: absolute;
+  left: 30px;
+  bottom: 200px;
+}
+button{
+  padding: 7px;
+}
+.create{
+  background-image: url("../images/create.jpeg");
+  background-size: cover;
+  background-position-y: -170px;
+  width: 100%;
+  height: 90vh;
+}
+.createF{
+  background:rgba(0, 0, 0, 0.8);
+  color: white;
+  width: 35%;
+  border-radius: 30px;
+  padding: 30px;
+  text-align: right;
+  position: absolute;
+  left: 130px;
+  bottom: 60px;
+}
