@@ -1,0 +1,22 @@
+<div id="searched-places">
+  {{#if places}}
+    {{#each places as |place|}}
+      <div class="card" style="width: 18rem; margin-bottom: 5vh;">
+        <img src="{{place.imgPath}}" class="card-img-top" alt="{{place.imgName}}">
+        <div class="card-body">
+          <h5 class="card-title place-link"><a href="/places/{{place.id}}">{{place.name}}</a></h5>
+          <p class="card-text">{{place.description}}</p>
+        </div>
+        <div id="places-buttons">
+          <a href="/places/edit/{{place.id}}" class="btn btn-warning mr-1" >Edit</a>
+          <a href="/places/delete/{{place.id}}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    {{/each}}
+  {{else}}
+    <div id="no-places">
+      <h1>No hay lugares que mostrar</h1>
+      <h2>Haga click <a href="/places/create">aquí</a>  para ofrecer uno ahora mismo</h2>
+    </div>
+  {{/if}}
+</div>

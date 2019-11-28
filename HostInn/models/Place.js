@@ -29,10 +29,12 @@ const placeSchema = new Schema(
       type: String
     },
     imgName: {
-      type: String
+      type: String,
+      default: "Sin imagen"
     },
     imgPath: {
-      type: String
+      type: String,
+      default: "https://www.clarkecountydemocrat.com/wp-content/themes/dolores/assets/img/default.jpg"
     },
     lng : {
       type: String,

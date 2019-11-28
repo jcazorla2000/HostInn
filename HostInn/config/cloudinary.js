@@ -17,13 +17,13 @@ const storage = cloudinaryStorage({
   cloudinary,
   folder: "HostInn",
   allowedFormats: ["jpg", "png", "gif"],
-  filename: function(req, file, done) {
-    done(null, file.originalname);
+  filename: (req, file, done) => {
+    return done(null, file.originalname)
   }
 });
 
 const uploadCloud = multer({
-  storage: storage
+  storage
 });
 // Le decimos a multer que va a almacenar las imagenes en base a la configuración de cloudinary
 module.exports = uploadCloud;

@@ -1,18 +1,15 @@
-<div class="profile">
-  <h2>Mi perfil</h2>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        <a href="#" class="btn btn-primary">Crear espacio</a>
+<div id="profile">
+  <div id="left-profile" style="width: 25%;">
+    <div class="card" style="width: 18rem; width: 100%;" id="profile-top">
+      <img src="{{data.photo}}" class="card-img-top" alt="Profile photo" id="image-profile">
+      <div class="card-body">
+        <h5 class="card-title">{{data.username}}</h5>
       </div>
-      <div class="col-sm">
-        <a href="#" class="btn btn-primary">Editar espacio</a>
-      </div>
-      </div>
-      <div class="col-sm">
-        <a href="#" class="btn btn-primary">Eliminar espacio</a>
-      </div>
-      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{data.role}}</li>
+        <li class="list-group-item">{{data.email}}</li>
+        <li class="list-group-item">{{data.telephoneNumber}}</li>
+      </ul>
     </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ exports.checkRole = role => (req, res, next) => {
   if (req.user.role === role) {
     return next();
   } else {
-    return res.send("No te confundas 💁‍♀️");
+    
   }
 };
 exports.whichRole = (req, res, next) => {
@@ -44,3 +44,11 @@ exports.checkUser = (req, res, next) => {
   }
   return next();
 };
+
+exports.ensureAnf = (req, res, next) => {
+  if (req.user.role === "Anfitrion") {
+    return next();
+  } else {
+    return res.redirect('/');
+  }
+}

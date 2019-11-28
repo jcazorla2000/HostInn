@@ -3,7 +3,7 @@
 </div>
 
 <script>
-  var monument = [-77.0353, 38.8895];
+  //var monument = [-77.0353, 38.8895];
   mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
   var map = new mapboxgl.Map({
   container: 'map-locations',
@@ -26,15 +26,23 @@
       var id = "{{place._id}}";
       var lng = Number("{{place.lng}}");
       var lat = Number("{{place.lat}}");
+      var name = "{{place.name}}"
+      var imgUrl = "{{place.imgPath}}"
+      var imgName = "{{place.imgName}}"
 
       var popup = new mapboxgl.Popup({closeOnClick: true})
       .setLngLat([lng, lat])
-      .setHTML(`<a href="http://localhost:3000/places/${id}">Aquí</a>`)
+      .setHTML(`
+        <br>
+        <img src="${imgUrl}" alt="${imgName}" style="height: 70px">
+        <br>
+        <a href="http://localhost:3000/places/${id}">${name}</a>
+        `)
       .addTo(map);
 
       var el = document.createElement('div');
       el.id = 'marker';
-    
+      
       new mapboxgl.Marker(el)
       .setLngLat([lng, lat])
       .setPopup(popup) 

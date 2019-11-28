@@ -28,6 +28,10 @@ const userSchema = new Schema(
       type: Number,
       default: 5
     },
+    photo: {
+      type: String,
+      default: "https://www.voanews.com/themes/custom/voa/images/Author__Placeholder.png"
+    },
     places: [
       {
         type: Schema.Types.ObjectId,
