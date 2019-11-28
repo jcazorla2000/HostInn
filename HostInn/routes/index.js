@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const Place = require("../models/Place")
 const User = require("../models/User")
-const { ensureLogin, whichRole, checkUser, ensureAnf} = require("../middlewares/auth.middlewares")
+const { ensureLogin, whichRole, checkUser, ensureAnf, isLoggedIn} = require("../middlewares/auth.middlewares")
 
 /* GET home page */
 router.get('/', checkUser, (req, res, next) => {
@@ -32,11 +32,11 @@ router.get("/map/locations", checkUser, async (req,res, next) => {
   places = await Place.find()
   res.render("map/locations", {places} )
 })
-router.get("/places/create", whichRole ,checkUser, ensureAnf, ensureLogin, (req,res, next) => {
+router.get("/places/create", isLoggedIn, checkUser, ensureAnf, ensureLogin, whichRole,  (req,res, next) => {
   res.render("places/create",)
 })
 
-router.get("/places/delete/:id", whichRole,checkUser, ensureAnf, ensureLogin, (req,res,next)=>{
+router.get("/places/delete/:id", isLoggedIn,checkUser, ensureAnf, ensureLogin, whichRole, (req,res,next)=>{
   const { id } = req.params
   const { _id } = req.user
   console.log(id)
@@ -48,7 +48,7 @@ router.get("/places/delete/:id", whichRole,checkUser, ensureAnf, ensureLogin, (r
     .catch(err => console.log(err))
 })
 
-router.get("/places/edit/:id", whichRole,checkUser, ensureAnf,  ensureLogin, (req,res,next)=>{
+router.get("/places/edit/:id", isLoggedIn,checkUser, ensureAnf,  ensureLogin,whichRole, (req,res,next)=>{
   const { id } = req.params
   Place.findById(id)
     .then( place => res.render("places/edit", {place}))

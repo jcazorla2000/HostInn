@@ -1,5 +1,5 @@
 exports.isLoggedIn = (req, res, next) => {
-  req.isAuthenticated() ? next() : res.redirect("/login");
+  req.isAuthenticated() ? next() : res.redirect("/auth/login");
 };
 exports.isNotLoggedIn = (req, res, next) => {
   !req.isAuthenticated() ? next() : res.redirect("./places/show");
