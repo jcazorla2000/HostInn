@@ -47,6 +47,10 @@ const placeSchema = new Schema(
     address: {
       type: String,
       required: true
+    },
+    rented: {
+      type: Boolean,
+      default: true
     }
   },
   {

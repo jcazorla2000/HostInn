@@ -1,3 +1,4 @@
+<a href="/places/create" class="btn btn-success ml-4 mt-4">Crear</a>
 <div id="searched-places">
   {{#if places}}
     {{#each places as |place|}}
@@ -8,8 +9,8 @@
           <p class="card-text">{{place.description}}</p>
         </div>
         <div id="places-buttons">
-          <a href="/places/edit/{{place.id}}" class="btn btn-warning mr-1" >Edit</a>
-          <a href="/places/delete/{{place.id}}" class="btn btn-danger">Delete</a>
+          <a href="/places/edit/{{place.id}}" class="btn btn-warning mr-1" >Editar</a>
+          <a href="/places/delete/{{place.id}}" class="btn btn-danger">Remover</a>
         </div>
       </div>
     {{/each}}

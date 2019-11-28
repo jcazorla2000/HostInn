@@ -64,8 +64,10 @@ router.post("/places/edit/:id", (req, res) => {
 
 router.get("/places/:id", (req, res, next) => {
   const { id } = req.params
+  const user = req.user
+  console.log(user)
   Place.findById(id)
-    .then( place => res.render("places/detail", {place}))
+    .then( place => res.render("places/detail", {place, user}))
     .catch(err => console.log(err))
 })
 module.exports = router;

@@ -1,4 +1,4 @@
-<div class="signup">
+{{!-- <div class="signup">
   <div class="signupF">
       <h2>Signup</h2>
 <form action="/auth/signup" method="POST" id="form-container">
@@ -28,5 +28,41 @@
   </p>
 </form>
   </div>
-</div>
+</div> --}}
 
+
+<div class="signup">
+  <div class="signupF">
+      <h2>Signup</h2>
+<form action="/auth/signup" method="POST" id="form-container">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Nombre de usuario</label>
+    <input  name="username" type="text" class="form-control" id="exampleFormControlInput1" placeholder="name">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Correo electrónico</label>
+    <input  name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Número de teléfono</label>
+    <input  name="telephoneNumber" type="number" class="form-control" id="exampleFormControlInput1" placeholder="+54 123456789">
+  </div>
+  <h5>¿Usted es Huésped o Anfitrión?</h5>
+  <input type="radio" name="role" value="Huesped" checked> Huésped
+  <input type="radio" name="role" value="Anfitrion"> Anfitrión
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+  <br>
+  <button type="submit" class="btn btn-secondary">Crear cuenta</button>
+  <p class="account-message">
+    ¿Ya tienes una cuenta?
+    <a href="/auth/login">Login</a>
+  </p>
+</form>
+  </div>
+</div>

@@ -1,2 +1,18 @@
-<h1>{{place.name}}</h1>
-<img src="{{place.imgPath}}" alt="{{place.imgName}}">
+<div class="card mb-3 show-card" style="max-width: 1300px;height: 33rem">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{place.imgPath}}" class="card-img" alt="{{place.imgName}}">
+      <h5 class="card-title">{{place.name}}</h5>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><strong>Descripción:</strong><br>{{place.description}}</p>
+        <p class="card-text">Precio: $ {{place.price}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Dirección</strong> <br>{{place.address}}</li>
+      <li class="list-group-item"> <strong>Disponible</strong> <br>Fecha de inicio: {{place.startDate}} <br> Fecha límite: {{place.endDate}}</li>
+    </ul>
+    </div>
+  </div>
+</div>

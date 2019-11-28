@@ -21,9 +21,6 @@ a {
   height: 90vh;
 }
 
-#header > h1 {
-  padding-left: 220px;
-}
 
 #map-size {
   height: 88vh;
@@ -174,10 +171,6 @@ button{
   height: 90vh;
 }
 
-#searchBar {
-  padding-left: 140vh;
-  padding-top: 5vh
-}
 
 h5 > a {
   text-decoration: none;
@@ -192,7 +185,6 @@ h5 > a {
 
 
 #image-slides {
-  //height: 100px;
   margin-left: 10%;
   padding-top: 2%;
   padding-bottom: 5%;
@@ -224,11 +216,64 @@ h5 > a {
 
 #places-buttons {
   display: flex;
-  justify-content: flex-end
+  justify-content: flex-end;
+  margin-right: 6px;
+  margin-bottom: 6px;
 }
 
 #no-places {
   display: flex;
   flex-direction: column;
   align-items: center
+}
+
+
+.search-box {
+  width: 70%;
+}
+
+
+
+#header {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-box-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#searchBar {
+  width: 100%;
+  display: flex;
+  justify-content: center
+}
+
+#searchValue {
+  width: 80%;
+  opacity: 2r;
+  display: flex;
+  justify-content: center;
+}
+
+#trans-box {
+  background: rgba(204, 204, 204, 0.8);
+}
+
+
+#detail-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  background-color: rgb(20, 27, 34);
+  color: white;
+  margin-top: 5vh;
 }
