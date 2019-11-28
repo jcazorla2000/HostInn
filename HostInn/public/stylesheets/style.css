@@ -67,9 +67,9 @@ a {
   width: 50vw;
   height: 60vh; }
 
-#right h3 {
-  margin-left: 102vh;
-  padding-top: 19vh; }
+#right {
+  margin-left: 98vh;
+  padding-top: 13vh; }
 
 #marker {
   background-image: url("https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png");
