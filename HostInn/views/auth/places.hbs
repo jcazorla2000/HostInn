@@ -1,8 +1,13 @@
-<a href="/places/create" class="btn btn-success ml-4 mt-4">Crear</a>
+<div class="card mt-3 ml-3" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Cree aquí nuevo lugares</h5>
+    <a href="/places/create" class="btn btn-success ml-0 mt-1">Crear</a>
+  </div>
+</div>
 <div id="searched-places">
   {{#if places}}
     {{#each places as |place|}}
-      <div class="card" style="width: 18rem; margin-bottom: 5vh;">
+      <div class="card" style="width: 18rem; margin-bottom: 3.7vh;">
         <img src="{{place.imgPath}}" class="card-img-top" alt="{{place.imgName}}">
         <div class="card-body">
           <h5 class="card-title place-link"><a href="/places/{{place.id}}">{{place.name}}</a></h5>
