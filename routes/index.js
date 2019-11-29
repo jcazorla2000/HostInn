@@ -2,11 +2,21 @@ const express = require('express');
 const router  = express.Router();
 const Place = require("../models/Place")
 const User = require("../models/User")
+const uploadCloud = require("../config/cloudinary")
 const { ensureLogin, whichRole, checkUser, ensureAnf, isLoggedIn} = require("../middlewares/auth.middlewares")
 
 /* GET home page */
 router.get('/', checkUser, (req, res, next) => {
-  res.render('index');
+  Place.find()
+    .then( places => {
+      if (places[2]){
+        res.render("index", {places})
+      }
+      else {
+        res.render('index');
+      }
+    })
+    .catch( err => console.error(err))
 });
 
 router.post("/", (req, res) => {
@@ -55,11 +65,32 @@ router.get("/places/edit/:id", isLoggedIn,checkUser, ensureAnf,  ensureLogin,whi
     .catch( err => console.error(err))
 })
 
-router.post("/places/edit/:id", (req, res) => {
+
+router.post("/places/edit/:id", uploadCloud.single("photo"),(req, res) => {
   const { id } = req.params
-  Place.findByIdAndUpdate(id, {...req.body})
-    .then( place => res.redirect("/"))
-    .catch(err => console.log(err))
+  if (req.file){
+    const { secure_url, originalname } = req.file;
+    console.log("-----------siiii")
+    const { price, startDate, endDate, description, address} = req.body
+    if (price === "" || startDate === "" || endDate === "" || description === "" || address === "" ){
+      res.render(`places/edit`, { message: "Campos sin rellenar" });
+      return;
+    }
+    Place.findByIdAndUpdate(id, {hostID: id, imgName: originalname, imgPath: secure_url, ...req.body})
+      .then( place => res.redirect("/auth/places"))
+      .catch(err => console.log(err))
+  }
+  else {
+    const { price, startDate, endDate, description, address} = req.body
+    console.log("-----------noooo")
+    if (price === "" || startDate === "" || endDate === "" || description === "" || address === "" ){
+      res.redirect(`/places/edit/${id}`)
+      return;
+    }
+    Place.findByIdAndUpdate(id, {hostID: id, ...req.body})
+      .then( place => res.redirect("/auth/places"))
+      .catch(err => console.log(err))
+  }
 })
 
 router.get("/places/:id", (req, res, next) => {

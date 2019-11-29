@@ -20,7 +20,6 @@
 
   map.addControl(geocoder);
 </script>
-
   {{#each places as |place|}}
     <script>
       var id = "{{place._id}}";
@@ -36,7 +35,9 @@
         <br>
         <img src="${imgUrl}" alt="${imgName}" style="height: 70px">
         <br>
-        <a href="http://localhost:3000/places/${id}">${name}</a>
+        <a href="/places/${id}" style="text-decoration: none; color: inherit; font-size: 1.1rem">${name}</a>
+        <br>
+        <p>${{price}}</p>
         `)
       .addTo(map);
 

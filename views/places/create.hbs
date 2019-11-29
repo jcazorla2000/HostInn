@@ -1,0 +1,76 @@
+<div class="create">
+  <div class="createF">
+    <form action="/places/create" method="POST" enctype="multipart/form-data">
+    <h2>Crea</h2>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Precio</label>
+      <input name="price" type="number" class="form-control" id="exampleFormControlInput1" placeholder="">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Fecha de incio</label>
+      <input name="startDate" type="date" class="form-control" id="exampleFormControlInput1" min="2019-11-29" placeholder="">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Fecha de finalización</label>
+      <input name="endDate" type="date" class="form-control" id="exampleFormControlInput1" placeholder="">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Descripción</label>
+      <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Añada su foto</label>
+      <input name="photo" type="file" class="form-control-file" id="exampleFormControlFile1" style="margin-left: 13vh;">
+    </div>
+    <input id="lng" type="text" name="lng" hidden>
+    <input id="lat" type="text" name="lat" hidden>
+    <input id="address" type="text" name="address" hidden>
+    <input id="name" type="text" name="name" hidden>
+    {{#if message }}
+      <div class="alert alert-danger" role="alert">{{message}}</div>
+    {{/if}}
+    <button type="submit" class="btn btn-secondary">Crear</button>
+    <div id='map'></div>
+  </form>
+  </div>
+      <div id="right">
+        <div class="card mt-3 ml-3" style="width: 22rem; height: 4rem;">
+          <div class="card-body" style=" display: flex; justify-content: center">
+            <h4>Escoja aqui la ubicación</h4>
+          </div>
+        </div>
+        
+      </div>
+    <script>
+  mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11', 
+    center: [-122.25948, 37.87221], 
+    zoom: 12, 
+    boxZoom: 'true',
+  });
+  var geocoder = new MapboxGeocoder({ 
+    accessToken: mapboxgl.accessToken, 
+    mapboxgl: mapboxgl, 
+    marker: true, 
+  });
+  map.addControl(geocoder);
+  map.on('load', function() {
+    map.addSource('single-point', {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: []
+      }
+    });
+    geocoder.on('results', (results) => {
+      console.log(results)
+      document.querySelector('#address').value = results.features[0].place_name
+      document.querySelector('#lat').value = results.features[0].center[1];
+      document.querySelector('#lng').value = results.features[0].center[0];
+      document.querySelector('#name').value = results.features[0].text;
+  })
+  });
+</script>
+</div>

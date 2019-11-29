@@ -1,0 +1,99 @@
+<header id="header">
+  <div class="card  search-box" id="trans-box">
+    <div class="card-body search-box-2">
+      <h1 class="card-title">Decide donde y cuando</h1>
+      <form id="searchBar" action="/search" method="POST" class="form-inline my-2 my-lg-0 w-100">
+        <input id="searchValue" name="search" class="form-control mr-sm-2 " type="text" placeholder="Madrid" aria-label="Search">
+        <button id="search-button" class="btn btn-outline-danger my-2 my-sm-0 w-20" type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</header>
+<section id="section">
+  <hr id="hr">
+  <h1>Conviértete ahora mismo en anfitrión</h1>
+  <div style="width: 90%;">
+    <div id="index-text">
+      <img src="https://static.thenounproject.com/png/736683-200.png" alt="Signup" id="index-image">
+      <h3>Crea tu cuenta</h3>
+      <p>Puedes crear tu cuenta realizando unos simples pasos, simplemente rellene sus datos y escoja ser anfitrión <a href="/auth/signup">aquí</a>.</p>
+    </div>
+    <div id="index-text">
+      <img src="" alt="" id="index-image">
+      <h3>Ofrece una estancia</h3>
+      <p>Ofrezca alojamiento de una manera sencilla y cómoda, no se preocupe más.</p>
+    </div>
+    <div id="index-text">
+      <img src="http://cdn.onlinewebfonts.com/svg/img_510194.png" alt="Edit" id="index-image">
+      <h3>Añada o modifique</h3>
+      <p>Añadir y modificar sus alojamientos a su alcance con tan solo unos clicks.</p>
+    </div>
+  </div>
+</section>
+<section id="section">
+  <hr id="hr">
+  <h1>Conoce nuevos lugares</h1> 
+</section>
+<div id="image-slides">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    {{#if places}}
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{{places.[0].imgPath}}" class="d-block w-100" alt="Place image">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{places.[0].name}}</h5>
+            <p>{{places.[0].description}}</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="{{places.[1].imgPath}}" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{places.[1].name}}</h5>
+            <p>{{places.[1].description}}</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="{{places.[2].imgPath}}" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{places.[2].name}}</h5>
+            <p>{{places.[2].description}}</p>
+          </div>
+        </div>
+      </div>
+      {{!-- <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a> --}}
+    </div>
+    {{else}}
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://res.cloudinary.com/josecg/image/upload/v1574882404/HostInn/slidesimage2.jpg.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://res.cloudinary.com/josecg/image/upload/v1574882404/HostInn/slidesimage2.jpg.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://res.cloudinary.com/josecg/image/upload/v1574882404/HostInn/slidesimage2.jpg.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+    {{/if}}
+    {{!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a> --}}
+  </div>
+</div>
