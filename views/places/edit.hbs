@@ -1,45 +1,37 @@
 <div class="create">
   <div class="createF">
-    <form action="/places/edit/{{place._id}}" method="POST" enctype="multipart/form-data">
-    <h2>Edita</h2>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Precio</label>
-      <input name="price" type="number" class="form-control" id="exampleFormControlInput1" placeholder="" required>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Fecha de incio</label>
-      <input name="startDate" type="date" class="form-control" id="exampleFormControlInput1" min="2019-11-29" placeholder="" required>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Fecha de finalización</label>
-      <input name="endDate" type="date" class="form-control" id="exampleFormControlInput1" placeholder="" required>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Descripción</label>
-      <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlFile1">Añada su foto</label>
-      <input name="photo" type="file" class="form-control-file" id="exampleFormControlFile1" style="margin-left: 13vh;">
-    </div>
+    <form action="/places/edit/{{place._id}}" method="POST">
+    <h2>Crea</h2>
+    <label for="price">Precio</label>
+    <br>
+    <input type="number" name="price" id="price">
+    <br><br>
+    <label for="startDate">Fecha de inicio</label>
+    <br>
+    <input type="date" name="startDate" id="startDate">
+    <br><br>
+    <label for="endDate">Fecha de finalización</label>
+    <br>
+    <input type="date" name="endDate" id="endDate">
+    <br><br>
+    <label for="description">Descripción</label>
+    <br>
+    <input type="text" name="description" id="description">
+    <br><br>
+    <label for="photo">Foto</label>
+    <br>
+    <input type="file" name="photo" id="photo">
     <input id="lng" type="text" name="lng" hidden>
     <input id="lat" type="text" name="lat" hidden>
-    <input id="address" type="text" name="address" hidden required>
+    <input id="address" type="text" name="address" hidden>
     <input id="name" type="text" name="name" hidden>
-    {{#if message }}
-      <div class="alert alert-danger" role="alert">{{message}}</div>
-    {{/if}}
-    <button type="submit" class="btn btn-secondary">Editar</button>
+    <br>
+    <button type="submit">Editar</button>
     <div id='map'></div>
   </form>
   </div>
       <div id="right">
-        <div class="card mt-3 ml-3" style="width: 22rem; height: 4rem;">
-          <div class="card-body" style=" display: flex; justify-content: center">
-            <h4>Escoja aqui la ubicación</h4>
-          </div>
-        </div>
-        
+      <h3>Escoja aqui la ubicación</h3>
       </div>
     <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
