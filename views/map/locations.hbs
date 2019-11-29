@@ -3,7 +3,6 @@
 </div>
 
 <script>
-  //var monument = [-77.0353, 38.8895];
   mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zZWNhem9ybGEiLCJhIjoiY2szNjI3M2tkMDdjdjNocXA2bTl4ZThvdiJ9.Z4j_rPWQgMRpRRFW6na_ug';
   var map = new mapboxgl.Map({
   container: 'map-locations',
@@ -20,7 +19,6 @@
 
   map.addControl(geocoder);
 </script>
-
   {{#each places as |place|}}
     <script>
       var id = "{{place._id}}";
@@ -36,7 +34,9 @@
         <br>
         <img src="${imgUrl}" alt="${imgName}" style="height: 70px">
         <br>
-        <a href="https://hostinn.herokuapp.com/places/${id}">${name}</a>
+        <a href="/places/${id}" style="text-decoration: none; color: inherit; font-size: 1.1rem">${name}</a>
+        <br>
+        <p>${{price}}</p>
         `)
       .addTo(map);
 

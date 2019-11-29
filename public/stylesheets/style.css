@@ -231,10 +231,15 @@ h5 > a {
 
 footer {
   background-color: #141b22;
-  color: white;
-  margin-top: 5vh; }
+  color: white; }
 
 #profile-top {
   padding-bottom: 8.8vh; }
+
+#index-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
