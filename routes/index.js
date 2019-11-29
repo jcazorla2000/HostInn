@@ -27,7 +27,6 @@ router.post("/search", (req, res) => {
   const { search } = req.body
   Place.find({name: { $regex: `${search}.*`, $options: 'i' } })
     .then(places => {
-      console.log(places)
       res.render("places/searchedPlaces", {places})
     })
     .catch(err => console.log(err))
@@ -35,7 +34,6 @@ router.post("/search", (req, res) => {
 
 router.post("/searchedPlaces/:result", (req, res) => {
   const { result } = req.params
-  console.log(result)
 })
 
 router.get("/map/locations", checkUser, async (req,res, next) => {
@@ -49,7 +47,6 @@ router.get("/places/create", isLoggedIn, checkUser, ensureAnf, ensureLogin, whic
 router.get("/places/delete/:id", isLoggedIn,checkUser, ensureAnf, ensureLogin, whichRole, (req,res,next)=>{
   const { id } = req.params
   const { _id } = req.user
-  console.log(id)
   Place.findByIdAndRemove(id)
     .then( () => User.findByIdAndUpdate(_id, {$pull: {places: { $in: id }}})
             .then( () => res.redirect("/auth/places"))
@@ -70,7 +67,6 @@ router.post("/places/edit/:id", uploadCloud.single("photo"),(req, res) => {
   const { id } = req.params
   if (req.file){
     const { secure_url, originalname } = req.file;
-    console.log("-----------siiii")
     const { price, startDate, endDate, description, address} = req.body
     if (price === "" || startDate === "" || endDate === "" || description === "" || address === "" ){
       res.render(`places/edit`, { message: "Campos sin rellenar" });
@@ -82,7 +78,6 @@ router.post("/places/edit/:id", uploadCloud.single("photo"),(req, res) => {
   }
   else {
     const { price, startDate, endDate, description, address} = req.body
-    console.log("-----------noooo")
     if (price === "" || startDate === "" || endDate === "" || description === "" || address === "" ){
       res.redirect(`/places/edit/${id}`)
       return;
